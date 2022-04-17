@@ -2,8 +2,6 @@ name: build and test
 
 on:
   push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
@@ -19,16 +17,16 @@ jobs:
             - ubuntu-latest
             - windows-latest
         ocaml-compiler:
-            - '4.03.x'
-            - '4.13.x'
+            - '4.03.0'
+            - '4.13.1'
 
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@main
       - name: Use OCaml ${{ matrix.ocaml-compiler }}
-        uses: ocaml/setup-ocaml@v2
+        uses: ocaml/setup-ocaml@v1
         with:
-          ocaml-compiler: ${{ matrix.ocaml-compiler }}
+          ocaml-version: ${{ matrix.ocaml-compiler }}
 
       - run: opam pin -n .
 
