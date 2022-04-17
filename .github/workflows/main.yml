@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Use OCaml ${{ matrix.ocaml-compiler }}
-        uses: ocaml/setup-ocaml@v1
+        uses: dra27/setup-ocaml@safe-git-v1
         with:
           ocaml-version: ${{ matrix.ocaml-compiler }}
 
