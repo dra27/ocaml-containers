@@ -2,8 +2,6 @@ name: build and test
 
 on:
   push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
@@ -26,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Use OCaml ${{ matrix.ocaml-compiler }}
-        uses: ocaml/setup-ocaml@v2
+        uses: dra27/setup-ocaml@safe-git
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
 
